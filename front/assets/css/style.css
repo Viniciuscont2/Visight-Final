@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --laranja: #ff8601;
+  --branco: #fff;
+  --cinza: #f5f5f5;
+  --preto-primario: #222;
+  --preto-secundario: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+}
+
+.navegacao {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--laranja);
+  border-left: 10px solid var(--laranja);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.navegacao.ativo {
+  width: 80px;
+}
+
+.navegacao ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navegacao ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navegacao ul li:hover,
+.navegacao ul li.hovered {
+  background-color: var(--branco);
+}
+
+.navegacao ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navegacao ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--branco);
+}
+
+.navegacao ul li:hover a,
+.navegacao ul li.hovered a {
+  color: var(--laranja);
+}
+
+.navegacao ul li a .navegacao__icone {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navegacao ul li a .navegacao__icone ion-icon {
+  font-size: 1.75rem;
+}
+
+.navegacao ul li a .navegacao__titulo {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navegacao ul li:hover a::before,
+.navegacao ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--branco);
+  pointer-events: none;
+}
+
+.navegacao ul li:hover a::after,
+.navegacao ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--branco);
+  pointer-events: none;
+}
+
+.conteudo {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-width: 100vh;
+  background: var(--branco);
+  transition: 0.5s;
+}
+
+.conteudo.ativo {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.conteudo__topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.conteudo__menuNav {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--laranja);
+}
+
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: var(--branco);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numeros {
+  display: flex;
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--laranja);
+  gap: 1rem;
+}
+
+.cardBox .card .nomeCard {
+  color: var(--preto-secundario);
+  font-size: 1.3rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconeBox {
+  font-size: 3rem;
+  color: var(--preto-secundario);
+}
+
+.cardBox .card:hover {
+  background: var(--laranja);
+}
+.cardBox .card:hover .numeros,
+.cardBox .card:hover .nomeCard,
+.cardBox .card:hover .iconeBox {
+  color: var(--branco);
+}
+
+.graficos-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.grafico,
+.grafico2 {
+  flex: 1;
+  min-width: 400px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
