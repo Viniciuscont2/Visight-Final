@@ -96,45 +96,48 @@
   </div>
   
   <script>
-      // Função para carregar os dados da tabela info_alimentos
-      fetch("database/resultados_analise.json")
-          .then((response) => response.json())
-          .then((data) => {
-
-              const tbody = document.querySelector("#tabela-alimentos tbody");
-
-              const cardAlimento = document.querySelector(".card .valorCard");
-              const pesoAlimento = document.querySelector(".card .valorCard2");
-          
-          // Supondo que você deseja exibir o primeiro alimento no card
-              if (data.length > 0) {
+    // Função para carregar os dados da tabela info_alimentos
+    fetch("database/resultados_analise.json")
+        .then((response) => {
+            // Verifica se a resposta foi bem-sucedida
+            if (!response.ok) {
+                throw new Error("Erro ao carregar o arquivo JSON");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const tbody = document.querySelector("#tabela-alimentos tbody");
+            const cardAlimento = document.querySelector(".card .valorCard");
+            const pesoAlimento = document.querySelector(".card .valorCard2");
+            
+            // Verifica se há dados antes de acessar
+            if (data.length > 0) {
                 const alimento = data[data.length - 1]; // Pegando o último alimento
                 cardAlimento.textContent = alimento.alimento || 'N/A'; // Exibindo o nome do alimento
-                pesoAlimento.textContent = ` ${alimento.peso_liquido || 'N/A'} kg`; // Exibindo o peso
-          }
+                pesoAlimento.textContent = `${alimento.peso_liquido || 'N/A'} kg`; // Exibindo o peso
+            }
 
-              data.forEach((alimento) => {
-                  const tr = document.createElement("tr");
-                  tr.innerHTML = `
-                      
-                      <td>${alimento.nome_alimento || 'N/A'}</td>
-                      <td>${alimento.peso_bruto || 'N/A'}</td>
-                      <td>${alimento.peso_liquido || 'N/A'}</td>
-                      <td>${alimento.fator_correcao || 'N/A'}</td>
-                      <td>${alimento.rendimento_kg || 'N/A'}</td>
-                      <td>${alimento.descarte_kg || 'N/A'}</td>
-                      <td>${alimento.custo_kg || 'N/A'}</td>
-                      <td>${alimento.custo_unitario || 'N/A'}</td>
-                      <td>${alimento.faturamento || 'N/A'}</td>\
-                      <td>${alimento.receita || 'N/A'}</td>
-                      <td>${alimento.qnt_vendas || 'N/A'}</td>
-                      <td>${alimento.preco_cobrado || 'N/A'}</td>
-                  `;
-                  tbody.appendChild(tr);
-              });
-          })
-          .catch((error) => console.error("Erro ao carregar os dados:", error));
-  </script>
+            // Itera sobre os dados e cria as linhas da tabela
+            data.forEach((alimento) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${alimento.alimento || 'N/A'}</td>
+                    <td>${alimento.peso_bruto || 'N/A'}</td>
+                    <td>${alimento.peso_liquido || 'N/A'}</td>
+                    <td>${alimento.peso_corte || 'N/A'}</td>
+                    <td>${alimento.rendimento || 'N/A'}</td>
+                    <td>${alimento.prejuizo || 'N/A'}</td>
+                    <td>${alimento.desperdicio || 'N/A'}</td>
+                    <td>${alimento.percentual_desperdicio || 'N/A'}</td>
+                    <td>${alimento.faturamento || 'N/A'}</td>
+                    <td>${alimento.timestamp || 'N/A'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        })
+        .catch((error) => console.error("Erro ao carregar os dados:", error));
+</script>
+
   </main>
   
   <!-- Scripts -->
