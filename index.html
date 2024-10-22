@@ -97,7 +97,7 @@
   
   <script>
       // Função para carregar os dados da tabela info_alimentos
-      fetch("http://localhost:3000/alimentos")
+      fetch("database/resultados_analise.json")
           .then((response) => response.json())
           .then((data) => {
 
@@ -108,8 +108,8 @@
           
           // Supondo que você deseja exibir o primeiro alimento no card
               if (data.length > 0) {
-                const alimento = data[0]; // Pegando o primeiro alimento para o exemplo
-                cardAlimento.textContent = alimento.nome_alimento || 'N/A'; // Exibindo o nome do alimento
+                const alimento = data[data.length - 1]; // Pegando o último alimento
+                cardAlimento.textContent = alimento.alimento || 'N/A'; // Exibindo o nome do alimento
                 pesoAlimento.textContent = ` ${alimento.peso_liquido || 'N/A'} kg`; // Exibindo o peso
           }
 
