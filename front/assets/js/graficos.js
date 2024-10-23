@@ -11,7 +11,7 @@ async function renderChart() {
   const data = await fetchData();
 
   const labels = data.map((item) => item.nome_alimento);
-  const receitas = data.map((item) => item.receita);
+  const receitas = data.map((item) => item.custo_unitario);
   const pesoB = data.map((item) => item.peso_bruto);
   const pesoL = data.map((item) => item.peso_liquido);
 
@@ -25,7 +25,7 @@ async function renderChart() {
       labels: labels,
       datasets: [
         {
-          label: "Receita",
+          label: "Custo",
           data: receitas,
           backgroundColor: "rgba(75, 192, 192, 1)",
           borderColor: "rgba(75, 192, 192, 1)",

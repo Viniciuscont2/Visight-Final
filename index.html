@@ -28,36 +28,36 @@
             </li>
             <li>
               <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="home-outline"></ion-icon></span
+                ><span class="navegacao__icone">
+                  <ion-icon name="home-outline"></ion-icon> </span
                 ><span class="navegacao__titulo">Dashboard</span></a
               >
             </li>
             <li>
               <a href="/index(test).html"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="bar-chart-outline"></ion-icon></span
+                ><span class="navegacao__icone">
+                  <ion-icon name="bar-chart-outline"></ion-icon> </span
                 ><span class="navegacao__titulo">Financeio</span></a
               >
             </li>
             <li>
               <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="help-outline"></ion-icon></span
+                ><span class="navegacao__icone">
+                  <ion-icon name="help-outline"></ion-icon> </span
                 ><span class="navegacao__titulo">Ajuda</span></a
               >
             </li>
             <li>
               <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="settings-outline"></ion-icon></span
+                ><span class="navegacao__icone">
+                  <ion-icon name="settings-outline"></ion-icon> </span
                 ><span class="navegacao__titulo">Configurações</span></a
               >
             </li>
             <li>
               <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="log-out-outline"></ion-icon></span
+                ><span class="navegacao__icone">
+                  <ion-icon name="log-out-outline"></ion-icon> </span
                 ><span class="navegacao__titulo">Sign Out</span></a
               >
             </li>
@@ -99,17 +99,15 @@
               <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>Peso Bruto (kg)</th>
-                  <th>Peso Líquido (kg)</th>
-                  <th>Fator Correção</th>
-                  <th>Rendimento (kg)</th>
-                  <th>Descarte kg</th>
-                  <th>Custo kg</th>
+                  <th>Peso Bruto(kg)</th>
+                  <th>Peso Líquido(kg)</th>
+                  <th>Custo(kg)</th>
                   <th>Custo Unitario</th>
+                  <th>Rendimento(kg)</th>
+                  <th>Prejuizo</th>
+                  <th>descarte</th>
                   <th>Faturamento</th>
-                  <th>Receita</th>
-                  <th>Qnt Vendas</th>
-                  <th>Preço Cobrado</th>
+                  <th>Fator de Correção</th>
                 </tr>
               </thead>
               <tbody>
@@ -122,7 +120,7 @@
 
       <script>
         // Função para carregar os dados da tabela info_alimentos
-        fetch("database/resultados_analise.json")
+        fetch("http://localhost:3000/alimentos")
           .then((response) => response.json())
           .then((data) => {
             const tbody = document.querySelector("#tabela-alimentos tbody");
@@ -133,28 +131,26 @@
             // Supondo que você deseja exibir o primeiro alimento no card
             if (data.length > 0) {
               const alimento = data[data.length - 1]; // Pegando o último alimento
-              cardAlimento.textContent = alimento.alimento || "N/A"; // Exibindo o nome do alimento
+              cardAlimento.textContent = alimento.nome_alimento || "N/A"; // Exibindo o nome do alimento
               pesoAlimento.textContent = ` ${
-                alimento.peso_liquido || "N/A"
+                alimento.peso_liquido.toFixed(3) || "N/A"
               } kg`; // Exibindo o peso
             }
 
             data.forEach((alimento) => {
               const tr = document.createElement("tr");
               tr.innerHTML = `
-                <td>${alimento.nome_alimento || "N/A"}</td>
-                <td>${alimento.peso_bruto || "N/A"}</td>
-                <td>${alimento.peso_liquido || "N/A"}</td>
-                <td>${alimento.fator_correcao || "N/A"}</td>
-                <td>${alimento.rendimento_kg || "N/A"}</td>
-                <td>${alimento.descarte_kg || "N/A"}</td>
-                <td>${alimento.custo_kg || "N/A"}</td>
-                <td>${alimento.custo_unitario || "N/A"}</td>
-                <td>${alimento.faturamento || "N/A"}</td>
-                <td>${alimento.receita || "N/A"}</td>
-                <td>${alimento.qnt_vendas || "N/A"}</td>
-                <td>${alimento.preco_cobrado || "N/A"}</td>
-              `;
+        <td>${alimento.nome_alimento || "N/A"}</td>
+        <td>${Number(alimento.peso_bruto).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.peso_liquido).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.custo_kg).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.custo_unitario).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.rendimento_kg).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.prejuizo).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.descarte_kg).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.faturamento).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.fator_correcao).toFixed(3) || "N/A"}</td>
+      `;
               tbody.appendChild(tr);
             });
           })
