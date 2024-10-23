@@ -142,6 +142,7 @@ body {
   min-width: 100vh;
   background: var(--branco);
   transition: 0.5s;
+  margin: 20px;
 }
 
 .conteudo.ativo {
