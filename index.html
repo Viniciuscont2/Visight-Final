@@ -1,179 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./front/assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./front/assets/css/teste.css" />
-    <title>DashBoard</title>
-  </head>
 
-  <body>
-    <main>
-      <div class="container">
-        <!-- Navegação lateral -->
-        <div class="navegacao">
-          <ul>
-            <li>
-              <a href="#">
-                <span class="navegacao__icone">
-                  <img
-                    class="logo"
-                    src="./front/assets/img/wast-removebg-preview.png"
-                    alt="Logo da WasteZero"
-                  />
-                </span>
-                <span class="navegacao__titulo">Visight</span>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="home-outline"></ion-icon></span
-                ><span class="navegacao__titulo">Dashboard</span></a
-              >
-            </li>
-            <li>
-              <a href="/index(test).html"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="bar-chart-outline"></ion-icon></span
-                ><span class="navegacao__titulo">Financeio</span></a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="help-outline"></ion-icon></span
-                ><span class="navegacao__titulo">Ajuda</span></a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="settings-outline"></ion-icon></span
-                ><span class="navegacao__titulo">Configurações</span></a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span class="navegacao__icone"
-                  ><ion-icon name="log-out-outline"></ion-icon></span
-                ><span class="navegacao__titulo">Sign Out</span></a
-              >
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./front/assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./front/assets/css/teste.css" />
+  <title>DashBoard</title>
+</head>
 
-        <!-- Conteúdo principal -->
-        <div class="conteudo">
-          <div class="conteudo__topbar">
-            <div class="conteudo__menuNav">
-              <ion-icon name="menu-outline"></ion-icon>
-            </div>
-          </div>
-
-          <!-- Cartões -->
-          <div class="cardBox">
-            <div class="card">
-              <div class="cardAlimento"></div>
-              <div class="nomeCard">Alimento</div>
-              <div class="valorCard"></div>
-            </div>
-            <div class="card">
-              <div class="pesoAlimento"></div>
-              <div class="nomeCard">Peso</div>
-              <div class="valorCard2"></div>
-            </div>
-          </div>
-
-          <!-- Gráficos -->
-          <div class="graficos-container">
-            <div class="grafico"><canvas id="line-chart"></canvas></div>
-            <div class="grafico2"><canvas id="line-chart-2"></canvas></div>
-          </div>
-
-          <!-- Tabela de Dados -->
-          <div class="container_tabela">
-            <h1>Dados dos Alimentos</h1>
-            <table id="tabela-alimentos">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Peso Bruto (kg)</th>
-                  <th>Peso Líquido (kg)</th>
-                  <th>Fator Correção</th>
-                  <th>Rendimento (kg)</th>
-                  <th>Descarte kg</th>
-                  <th>Custo kg</th>
-                  <th>Custo Unitario</th>
-                  <th>Faturamento</th>
-                  <th>Receita</th>
-                  <th>Qnt Vendas</th>
-                  <th>Preço Cobrado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Os dados serão inseridos aqui pelo JavaScript -->
-              </tbody>
-            </table>
-          </div>
-        </div>
+<body>
+  <main>
+    <div class="container">
+      <!-- Navegação lateral -->
+      <div class="navegacao">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="navegacao__icone">
+                <img class="logo" src="./front/assets/img/wast-removebg-preview.png" alt="Logo da WasteZero" />
+              </span>
+              <span class="navegacao__titulo">Visight</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"><span class="navegacao__icone">
+                <ion-icon name="home-outline"></ion-icon>
+              </span><span class="navegacao__titulo">Dashboard</span></a>
+          </li>
+          <li>
+            <a href="/index(test).html"><span class="navegacao__icone">
+                <ion-icon name="bar-chart-outline"></ion-icon>
+              </span><span class="navegacao__titulo">Financeio</span></a>
+          </li>
+          <li>
+            <a href="#"><span class="navegacao__icone">
+                <ion-icon name="help-outline"></ion-icon>
+              </span><span class="navegacao__titulo">Ajuda</span></a>
+          </li>
+          <li>
+            <a href="#"><span class="navegacao__icone">
+                <ion-icon name="settings-outline"></ion-icon>
+              </span><span class="navegacao__titulo">Configurações</span></a>
+          </li>
+          <li>
+            <a href="#"><span class="navegacao__icone">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span><span class="navegacao__titulo">Sign Out</span></a>
+          </li>
+        </ul>
       </div>
 
-      <script>
-        // Função para carregar os dados da tabela info_alimentos
-        fetch("database/resultados_analise.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const tbody = document.querySelector("#tabela-alimentos tbody");
+      <!-- Conteúdo principal -->
+      <div class="conteudo">
+        <div class="conteudo__topbar">
+          <div class="conteudo__menuNav">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+        </div>
 
-            const cardAlimento = document.querySelector(".card .valorCard");
-            const pesoAlimento = document.querySelector(".card .valorCard2");
+        <!-- Cartões -->
+        <div class="cardBox">
+          <div class="card">
+            <div class="cardAlimento"></div>
+            <div class="nomeCard">Alimento</div>
+            <div class="valorCard"></div>
+          </div>
+          <div class="card">
+            <div class="pesoAlimento"></div>
+            <div class="nomeCard">Peso</div>
+            <div class="valorCard2"></div>
+          </div>
+        </div>
 
-            // Supondo que você deseja exibir o primeiro alimento no card
-            if (data.length > 0) {
-              const alimento = data[data.length - 1]; // Pegando o último alimento
-              cardAlimento.textContent = alimento.alimento || "N/A"; // Exibindo o nome do alimento
-              pesoAlimento.textContent = ` ${
+        <!-- Gráficos -->
+        <div class="graficos-container">
+          <div class="grafico"><canvas id="line-chart"></canvas></div>
+          <div class="grafico2"><canvas id="line-chart-2"></canvas></div>
+        </div>
+
+        <!-- Tabela de Dados -->
+        <div class="container_tabela">
+          <h1>Dados dos Alimentos</h1>
+          <table id="tabela-alimentos">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Peso Bruto(kg)</th>
+                <th>Peso Líquido(kg)</th>
+                <th>Peso Corte</th>
+                <th>Rendimento(kg)</th>
+                <th>Prejuizo</th>
+                <th>Desperdicio</th>
+                <th>Percentual Desperdicio</th>
+                <th>Faturamento</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Os dados serão inseridos aqui pelo JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Função para carregar os dados da tabela info_alimentos
+      fetch("database/resultados_analise.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const tbody = document.querySelector("#tabela-alimentos tbody");
+
+          const cardAlimento = document.querySelector(".card .valorCard");
+          const pesoAlimento = document.querySelector(".card .valorCard2");
+
+          // Supondo que você deseja exibir o primeiro alimento no card
+          if (data.length > 0) {
+            const alimento = data[data.length - 1]; // Pegando o último alimento
+            cardAlimento.textContent = alimento.alimento || "N/A"; // Exibindo o nome do alimento
+            pesoAlimento.textContent = ` ${
                 alimento.peso_liquido || "N/A"
               } kg`; // Exibindo o peso
-            }
+          }
 
-            data.forEach((alimento) => {
-              const tr = document.createElement("tr");
-              tr.innerHTML = `
-                <td>${alimento.nome_alimento || "N/A"}</td>
-                <td>${alimento.peso_bruto || "N/A"}</td>
-                <td>${alimento.peso_liquido || "N/A"}</td>
-                <td>${alimento.fator_correcao || "N/A"}</td>
-                <td>${alimento.rendimento_kg || "N/A"}</td>
-                <td>${alimento.descarte_kg || "N/A"}</td>
-                <td>${alimento.custo_kg || "N/A"}</td>
-                <td>${alimento.custo_unitario || "N/A"}</td>
-                <td>${alimento.faturamento || "N/A"}</td>
-                <td>${alimento.receita || "N/A"}</td>
-                <td>${alimento.qnt_vendas || "N/A"}</td>
-                <td>${alimento.preco_cobrado || "N/A"}</td>
-              `;
-              tbody.appendChild(tr);
-            });
-          })
-          .catch((error) => console.error("Erro ao carregar os dados:", error));
-      </script>
-    </main>
+          data.forEach((alimento) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+        <td>${alimento.alimento || "N/A"}</td>
+        <td>${Number(alimento.peso_bruto).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.peso_liquido).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.peso_corte).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.rendimento).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.prejuizo).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.desperdicio).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.percentual_desperdicio).toFixed(3) || "N/A"}</td>
+        <td>${Number(alimento.faturamento).toFixed(3) || "N/A"}</td>
+        <td>${alimento.timestamp || "N/A"}</td>
+      `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch((error) => console.error("Erro ao carregar os dados:", error));
+    </script>
+  </main>
 
-    <!-- Scripts -->
-    <script
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      type="module"
-    ></script>
-    <script
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      nomodule
-    ></script>
-    <script src="./front/assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./front/assets/js/graficos.js"></script>
-    <script src="./front/assets/js/cards.js"></script>
-  </body>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
+  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" nomodule></script>
+  <script src="./front/assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./front/assets/js/graficos.js"></script>
+  <script src="./front/assets/js/cards.js"></script>
+</body>
+
 </html>
