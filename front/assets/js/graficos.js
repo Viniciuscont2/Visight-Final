@@ -11,7 +11,7 @@ async function renderChart() {
   const data = await fetchData();
 
   const labels = data.map((item) => item.nome_alimento);
-  const receitas = data.map((item) => item.custo_unitario);
+  const receitas = data.map((item) => item.prejuizo);
   const pesoB = data.map((item) => item.peso_bruto);
   const pesoL = data.map((item) => item.peso_liquido);
 
@@ -25,11 +25,11 @@ async function renderChart() {
       labels: labels,
       datasets: [
         {
-          label: "Custo",
+          label: "Prejuízo",
           data: receitas,
-          backgroundColor: "rgba(75, 192, 192, 1)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
+          backgroundColor: ["rgb(255, 99, 132)", "rgb(255, 205, 86)"],
+          barPercentage: 0.7,
+          categoryPercentage: 0.7,
         },
       ],
     },
@@ -52,16 +52,12 @@ async function renderChart() {
         {
           label: "Peso liquido",
           data: pesoL,
-          backgroundColor: "rgba(255, 99, 132, 1)",
-          borderColor: "rgba(255, 99, 132, 1)",
-          borderWidth: 1,
+          backgroundColor: "rgba(75, 192, 192)",
         },
         {
           label: "Peso bruto",
           data: pesoB,
           backgroundColor: "rgba(54, 162, 235, 1)",
-          borderColor: "rgba(54, 162, 235, 1)",
-          borderWidth: 1,
         },
       ],
     },

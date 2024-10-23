@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./front/assets/css/style.css" rel="stylesheet" />
+    <title>DashBoard</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <!-- Navegação lateral -->
+        <div class="navegacao">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="navegacao__icone">
+                  <img
+                    class="logo"
+                    src="./front/assets/img/wast-removebg-preview.png"
+                    alt="Logo da WasteZero"
+                  />
+                </span>
+                <span class="navegacao__titulo">Visight</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html"
+                ><span class="navegacao__icone">
+                  <ion-icon name="home-outline"></ion-icon> </span
+                ><span class="navegacao__titulo">Visão Geral</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="navegacao__icone">
+                  <ion-icon name="help-outline"></ion-icon> </span
+                ><span class="navegacao__titulo">Ajuda</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="navegacao__icone">
+                  <ion-icon name="settings-outline"></ion-icon> </span
+                ><span class="navegacao__titulo">Configurações</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="navegacao__icone">
+                  <ion-icon name="log-out-outline"></ion-icon> </span
+                ><span class="navegacao__titulo">Sign Out</span></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="conteudo">
+          <div class="conteudo__topbar">
+            <div class="conteudo__menuNav">
+              <ion-icon name="menu-outline"></ion-icon>
+            </div>
+          </div>
+          <div class="textoHero">
+            <h1 class="tituloHero">Gráficos Percentuais</h1>
+          </div>
+          <div class="graficos-container">
+            <div class="grafico"><canvas id="line-chart"></canvas></div>
+            <div class="grafico2"><canvas id="line-chart-2"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      type="module"
+    ></script>
+    <script
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      nomodule
+    ></script>
+    <script src="./front/assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./front/assets/js/graficos.js"></script>
+    <script src="./front/assets/js/cards.js"></script>
+  </body>
+</html>

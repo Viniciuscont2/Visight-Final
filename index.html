@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./front/assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./front/assets/css/teste.css" />
+    <link rel="stylesheet" href="./front/assets/css/tabela.css" />
     <title>DashBoard</title>
   </head>
 
@@ -30,14 +30,14 @@
               <a href="#"
                 ><span class="navegacao__icone">
                   <ion-icon name="home-outline"></ion-icon> </span
-                ><span class="navegacao__titulo">Dashboard</span></a
+                ><span class="navegacao__titulo">Visão Geral</span></a
               >
             </li>
             <li>
-              <a href="/index(test).html"
+              <a href="/financeiro.html"
                 ><span class="navegacao__icone">
                   <ion-icon name="bar-chart-outline"></ion-icon> </span
-                ><span class="navegacao__titulo">Financeio</span></a
+                ><span class="navegacao__titulo">Financeiro</span></a
               >
             </li>
             <li>
@@ -86,12 +86,6 @@
             </div>
           </div>
 
-          <!-- Gráficos -->
-          <div class="graficos-container">
-            <div class="grafico"><canvas id="line-chart"></canvas></div>
-            <div class="grafico2"><canvas id="line-chart-2"></canvas></div>
-          </div>
-
           <!-- Tabela de Dados -->
           <div class="container_tabela">
             <h1>Dados dos Alimentos</h1>
@@ -101,13 +95,7 @@
                   <th>Nome</th>
                   <th>Peso Bruto(kg)</th>
                   <th>Peso Líquido(kg)</th>
-                  <th>Custo(kg)</th>
-                  <th>Custo Unitario</th>
-                  <th>Rendimento(kg)</th>
-                  <th>Prejuizo</th>
-                  <th>descarte</th>
-                  <th>Faturamento</th>
-                  <th>Fator de Correção</th>
+                  <th>Prejuízo</th>
                 </tr>
               </thead>
               <tbody>
@@ -143,13 +131,7 @@
         <td>${alimento.nome_alimento || "N/A"}</td>
         <td>${Number(alimento.peso_bruto).toFixed(3) || "N/A"}</td>
         <td>${Number(alimento.peso_liquido).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.custo_kg).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.custo_unitario).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.rendimento_kg).toFixed(3) || "N/A"}</td>
         <td>${Number(alimento.prejuizo).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.descarte_kg).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.faturamento).toFixed(3) || "N/A"}</td>
-        <td>${Number(alimento.fator_correcao).toFixed(3) || "N/A"}</td>
       `;
               tbody.appendChild(tr);
             });
