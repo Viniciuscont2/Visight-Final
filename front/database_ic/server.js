@@ -13,7 +13,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "", // Coloque sua senha do MySQL aqui, se houver
+  password: "",
   database: "bdvisight",
 });
 
