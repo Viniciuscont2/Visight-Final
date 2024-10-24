@@ -22,4 +22,3 @@ def calcular_faturamento(qnt_vendida, preco_cobrado):
 
 def rentabilidade(preco_venda_prato, peso_final, custo_kg):
     return preco_venda_prato - (peso_final * custo_kg)
-

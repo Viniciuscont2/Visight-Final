@@ -13,8 +13,7 @@ cursor = conexao.cursor()
 
 # Função para inserir dados no banco de dados
 def inserir_dados_no_banco(peso, alimento, timestamp):
-    query = "INSERT INTO tabela_alimentos(peso, alimento, timestamp) VALUES (%s, %s, %s)"
-    query = "CALL calcular("+ 20 + "," + maca + "," + 30 + ")"
+    query = "INSERT INTO tabela_alimentos (peso, alimento, timestamp) VALUES (%s, %s, %s)"
     valores = (peso, alimento, timestamp)
     cursor.execute(query, valores)
     conexao.commit()
